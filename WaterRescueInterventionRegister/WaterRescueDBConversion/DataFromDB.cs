@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WaterRescueDBConversion
 {
@@ -9,6 +11,9 @@ namespace WaterRescueDBConversion
         public string LifeguardSurname { get; set; }
         public char[] LifeguardPhoneNumber { get; set; }
         public int LifeguardRole { get; set; }
+        public virtual Intervention Intervention { get; set; }
+        public virtual Role Role { get; set; }
+        //public virtual ICollection<Role> Roles { get; private set; } = new ObservableCollection<Role>();
     }
     public class Report
     {
@@ -16,6 +21,7 @@ namespace WaterRescueDBConversion
         public DateOnly InterventionDate { get; set; }
         public TimeOnly InterventionTime { get; set; }
         public string InterventionReport { get; set; }
+        public virtual ICollection<Intervention> Interventions { get; private set; } = new ObservableCollection<Intervention>();
     }
     public class Intervention
     {
@@ -23,6 +29,8 @@ namespace WaterRescueDBConversion
         public int LifeguardID { get; set; }
         public DateOnly InterventionDate { get; set; }
         public int ResponseTime { get; set; }
+        public virtual Lifeguard Lifeguard { get; set; }
+        public virtual Report Report { get; set; }
     }
     public class Role
     {
