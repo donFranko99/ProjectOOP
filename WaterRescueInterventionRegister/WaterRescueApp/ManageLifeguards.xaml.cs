@@ -30,5 +30,10 @@ namespace WaterRescueApp
             InputData.AddLifeguard(InputName.Text,InputSurname.Text,InputPhonenumber.Text,InputRole.Text);
             this.Close();
         }
+
+        private void LifeguardList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
