@@ -42,6 +42,7 @@ namespace WaterRescueDBConversion.Migrations
                 {
                     ID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    RoletID = table.Column<int>(type: "INTEGER", nullable: false),
                     LifeguardName = table.Column<string>(type: "TEXT", nullable: true),
                     LifeguardSurname = table.Column<string>(type: "TEXT", nullable: true),
                     LifeguardPhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
@@ -63,9 +64,9 @@ namespace WaterRescueDBConversion.Migrations
                 {
                     ID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ResponseTime = table.Column<int>(type: "INTEGER", nullable: false),
-                    ReportID = table.Column<int>(type: "INTEGER", nullable: true),
-                    LifeguardID = table.Column<int>(type: "INTEGER", nullable: true)
+                    ReportID = table.Column<int>(type: "INTEGER", nullable: false),
+                    LifeguardID = table.Column<int>(type: "INTEGER", nullable: false),
+                    ResponseTime = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,12 +75,14 @@ namespace WaterRescueDBConversion.Migrations
                         name: "FK_Interventions_Lifeguards_LifeguardID",
                         column: x => x.LifeguardID,
                         principalTable: "Lifeguards",
-                        principalColumn: "ID");
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Interventions_Reports_ReportID",
                         column: x => x.ReportID,
                         principalTable: "Reports",
-                        principalColumn: "ID");
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

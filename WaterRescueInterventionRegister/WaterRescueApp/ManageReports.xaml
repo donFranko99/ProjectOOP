@@ -1,0 +1,24 @@
+﻿<Window x:Class="WaterRescueApp.ManageReports"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WaterRescueApp"
+        mc:Ignorable="d"
+        Title="Reports" Height="600" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="ManageReportsTitle" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24"><Run Text="Manage "/><Run Language="pl-pl" Text="Reports"/></TextBlock>
+    </Grid>
+</Window>

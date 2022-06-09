@@ -4,7 +4,59 @@ using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace WaterRescueDBConversion
-{/*
+{
+    public class DataFromDB
+    {
+        public static List<Lifeguard> GetLifeguards()
+        {
+            var lifeguards = new List<Lifeguard>();
+            using (var db = new WaterRescueContext())
+            {
+                foreach (var lg in db.Lifeguards)
+                {
+                    lifeguards.Add(lg);
+                }
+                return lifeguards;
+            }
+        }
+        public static List<Report> GetReports()
+        {
+            var reports = new List<Report>();
+            using (var db = new WaterRescueContext())
+            {
+                foreach (var rep in db.Reports)
+                {
+                    reports.Add(rep);
+                }
+                return reports;
+            }
+        }
+        public static List<Intervention> GetInterventions()
+        {
+            var interventions = new List<Intervention>();
+            using (var db = new WaterRescueContext())
+            {
+                foreach (var inv in db.Interventions)
+                {
+                    interventions.Add(inv);
+                }
+                return interventions;
+            }
+        }
+        public static List<Role> GetRoles()
+        {
+            var roles = new List<Role>();
+            using (var db = new WaterRescueContext())
+            {
+                foreach (var role in db.Roles)
+                {
+                    roles.Add(role);
+                }
+                return roles;
+            }
+        }
+    }
+    /*
     public class Lifeguard
     {
         public int LifeguardID { get; set; }

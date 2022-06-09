@@ -21,9 +21,69 @@ namespace WaterRescueApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Lifeguard> Lifeguards { get; set; } = DataFromDB.GetLifeguards();
+        public List<Report> Reports { get; set; } = DataFromDB.GetReports();
+        public List<Intervention> Interventions { get; set; } = DataFromDB.GetInterventions();
+        public List<Role> Roles { get; set; } = DataFromDB.GetRoles();
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void DataButtonLifeguards_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridReports.Visibility = Visibility.Hidden;
+            DataGridInterventions.Visibility = Visibility.Hidden;
+            DataGridLifeguard.Visibility = Visibility.Visible;
+        }
+
+        private void DataButtonReports_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridLifeguard.Visibility = Visibility.Hidden;
+            DataGridInterventions.Visibility = Visibility.Hidden;
+            DataGridReports.Visibility = Visibility.Visible;
+        }
+
+        private void DataButtonInterventions_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridReports.Visibility = Visibility.Hidden;
+            DataGridLifeguard.Visibility = Visibility.Hidden;
+            DataGridInterventions.Visibility = Visibility.Visible;
+        }
+
+        private void LifeguardWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            ManageLifeguards manageLifeguards = new ManageLifeguards();
+            manageLifeguards.ShowDialog();
+        }
+
+        private void ReportWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            ManageReports manageReports = new ManageReports();
+            manageReports.ShowDialog();
+        }
+
+        private void InterventionWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            ManageInterventions manageInterventions = new ManageInterventions();
+            manageInterventions.ShowDialog();
+        }
     }
 }
+        /*
+public void Refresh()
+{
+categoryDataGrid.ItemsSource = null;
+Pacjenci = Data.GetPacjents();
+categoryDataGrid.ItemsSource = Pacjenci;
+
+WypisDataGrid.ItemsSource = null;
+Wypisy = Data.GetWypis();
+WypisDataGrid.ItemsSource = Wypisy;
+
+RozpoznanieDataGrid.ItemsSource = null;
+Rozpoznania = Data.GetRozpoznianie();
+RozpoznanieDataGrid.ItemsSource = Rozpoznania;
+}
+*/
+

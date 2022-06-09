@@ -11,7 +11,7 @@ using WaterRescueDBConversion;
 namespace WaterRescueDBConversion.Migrations
 {
     [DbContext(typeof(WaterRescueContext))]
-    [Migration("20220608122022_cdb")]
+    [Migration("20220609132146_cdb")]
     partial class cdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,10 +25,10 @@ namespace WaterRescueDBConversion.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("LifeguardID")
+                    b.Property<int>("LifeguardID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ReportID")
+                    b.Property<int>("ReportID")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ResponseTime")
@@ -59,6 +59,9 @@ namespace WaterRescueDBConversion.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("RoleID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RoletID")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
@@ -103,11 +106,15 @@ namespace WaterRescueDBConversion.Migrations
                 {
                     b.HasOne("WaterRescueDBConversion.Lifeguard", "Lifeguard")
                         .WithMany("Interventions")
-                        .HasForeignKey("LifeguardID");
+                        .HasForeignKey("LifeguardID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("WaterRescueDBConversion.Report", "Report")
                         .WithMany("Interventions")
-                        .HasForeignKey("ReportID");
+                        .HasForeignKey("ReportID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Lifeguard");
 

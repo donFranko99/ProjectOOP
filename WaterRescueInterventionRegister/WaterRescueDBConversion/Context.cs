@@ -31,6 +31,7 @@ namespace WaterRescueDBConversion
     public class Lifeguard
     {
         public int ID { get; set; }
+        public int RoleID { get; set; }
         public string LifeguardName { get; set; }
         public string LifeguardSurname { get; set; }
         public string LifeguardPhoneNumber { get; set; }
@@ -47,6 +48,8 @@ namespace WaterRescueDBConversion
     public class Intervention
     {
         public int ID { get; set; }
+        public int ReportID { get; set; }
+        public int LifeguardID { get; set; }
         public int ResponseTime { get; set; }
         public Report Report { get; set; }
         public Lifeguard Lifeguard { get; set; }
