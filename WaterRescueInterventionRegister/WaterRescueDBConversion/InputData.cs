@@ -36,7 +36,15 @@ namespace WaterRescueDBConversion
             }
             var db = new WaterRescueContext();
             Role tmp = new Role();
-            tmp.ID = Int32.Parse(role);
+            //tmp = DataFromDB.GetRoles().First();
+            //foreach (Role r in DataFromDB.GetRoles())
+            //{
+            //    if (Int32.Parse(role)==r.ID)
+            //    {
+            //        tmp = r;
+            //    }
+            //}
+            tmp.ID = 1;
             db.Add(new Lifeguard()
             {
                 LifeguardName = name,
