@@ -55,18 +55,34 @@ namespace WaterRescueApp
         {
             ManageLifeguards manageLifeguards = new ManageLifeguards();
             manageLifeguards.ShowDialog();
+            Refresh();
         }
 
         private void ReportWindowButton_Click(object sender, RoutedEventArgs e)
         {
             ManageReports manageReports = new ManageReports();
             manageReports.ShowDialog();
+            Refresh();
         }
 
         private void InterventionWindowButton_Click(object sender, RoutedEventArgs e)
         {
             ManageInterventions manageInterventions = new ManageInterventions();
             manageInterventions.ShowDialog();
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            DataGridLifeguard.ItemsSource = null;
+            DataGridReports.ItemsSource = null;
+            DataGridInterventions.ItemsSource = null;
+            Lifeguards = DataFromDB.GetLifeguards();
+            Reports = DataFromDB.GetReports();
+            Interventions = DataFromDB.GetInterventions();
+            DataGridLifeguard.ItemsSource = Lifeguards;
+            DataGridReports.ItemsSource = Reports;
+            DataGridInterventions.ItemsSource = Interventions;
         }
     }
 }

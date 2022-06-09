@@ -35,14 +35,30 @@ namespace WaterRescueDBConversion
                 throw new ArgumentException("Roles take values from 1 to 3");
             }
             var db = new WaterRescueContext();
+            Role tmp = new Role();
+            tmp.ID = Int32.Parse(role);
             db.Add(new Lifeguard()
             {
                 LifeguardName = name,
                 LifeguardSurname = surname,
                 LifeguardPhoneNumber = phoneNumber,
-                RoleID = Int32.Parse(role)
+                Role = tmp
             });
             db.SaveChanges();
+        }
+        public static void RemoveLifeguard(int id)
+        {
+            using(var db = new WaterRescueContext())
+            {
+                foreach (Lifeguard lg in db.Lifeguards)
+                {
+                    if (lg.ID == id)
+                    {
+                        db.Remove(lg);
+                        db.SaveChanges();
+                    }
+                }
+            }
         }
     }
 }

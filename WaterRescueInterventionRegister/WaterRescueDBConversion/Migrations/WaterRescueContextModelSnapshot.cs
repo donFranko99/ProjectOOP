@@ -56,10 +56,7 @@ namespace WaterRescueDBConversion.Migrations
                     b.Property<string>("LifeguardSurname")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("RoleID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("RoletID")
+                    b.Property<int>("RoleID")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
@@ -123,7 +120,9 @@ namespace WaterRescueDBConversion.Migrations
                 {
                     b.HasOne("WaterRescueDBConversion.Role", "Role")
                         .WithMany("Lifeguards")
-                        .HasForeignKey("RoleID");
+                        .HasForeignKey("RoleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Role");
                 });

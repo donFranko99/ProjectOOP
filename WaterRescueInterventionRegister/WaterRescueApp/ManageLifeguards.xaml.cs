@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WaterRescueDBConversion;
 
 namespace WaterRescueApp
 {
@@ -22,6 +23,12 @@ namespace WaterRescueApp
         public ManageLifeguards()
         {
             InitializeComponent();
+        }
+
+        private void AddLifeguardButton_Click(object sender, RoutedEventArgs e)
+        {
+            InputData.AddLifeguard(InputName.Text,InputSurname.Text,InputPhonenumber.Text,InputRole.Text);
+            this.Close();
         }
     }
 }

@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WaterRescueApp"
         mc:Ignorable="d"
-        Title="Lifeguards" Height="600" Width="600">
+        Title="Lifeguardsx" Height="600" Width="600">
+    <Window.DataContext>
+        <local:MainWindow/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
@@ -32,7 +35,7 @@
                 <RowDefinition Height="25*" />
                 <RowDefinition Height="5*" />
             </Grid.RowDefinitions>
-            <Button x:Name="AddLifeguardButton" Grid.Column="1" Content="Add Lifeguard"  HorizontalAlignment="Center" Grid.Row="1" Width="auto" VerticalAlignment="Center"/>
+            <Button x:Name="AddLifeguardButton" Grid.Column="1" Content="Add Lifeguard"  HorizontalAlignment="Center" Grid.Row="1" Width="auto" VerticalAlignment="Center" Click="AddLifeguardButton_Click"/>
             <Button x:Name="RemoveLifeguardButton" Grid.Column="1" Content="Remove Lifeguard" HorizontalAlignment="Center" Grid.Row="3" Width="auto" VerticalAlignment="Center"/>
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -52,6 +55,7 @@
                     <TextBox x:Name="InputRole" TextWrapping="Wrap" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
+            <ListBox x:Name="LifeguardList" Grid.Row="3" d:ItemsSource="{Binding Lifeguards}"/>
         </Grid>
     </Grid>
 </Window>

@@ -42,11 +42,10 @@ namespace WaterRescueDBConversion.Migrations
                 {
                     ID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    RoletID = table.Column<int>(type: "INTEGER", nullable: false),
+                    RoleID = table.Column<int>(type: "INTEGER", nullable: false),
                     LifeguardName = table.Column<string>(type: "TEXT", nullable: true),
                     LifeguardSurname = table.Column<string>(type: "TEXT", nullable: true),
-                    LifeguardPhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    RoleID = table.Column<int>(type: "INTEGER", nullable: true)
+                    LifeguardPhoneNumber = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,7 +54,8 @@ namespace WaterRescueDBConversion.Migrations
                         name: "FK_Lifeguards_Roles_RoleID",
                         column: x => x.RoleID,
                         principalTable: "Roles",
-                        principalColumn: "ID");
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
