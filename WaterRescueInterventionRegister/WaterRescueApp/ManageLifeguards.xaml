@@ -37,7 +37,7 @@
             </Grid.RowDefinitions>
             <Button x:Name="AddLifeguardButton" Grid.Column="1" Content="Add Lifeguard"  HorizontalAlignment="Center" Grid.Row="1" Width="auto" VerticalAlignment="Center" Click="AddLifeguardButton_Click"/>
             <StackPanel Grid.Row="3" Grid.Column="1">
-                <ComboBox x:Name="IDRemoveComboBox" SelectionChanged="IDRemoveComboBox_SelectionChanged" IsSynchronizedWithCurrentItem="{Binding IdColumnL}"/>
+                <ComboBox x:Name="IDRemoveComboBox" SelectionChanged="IDRemoveComboBox_SelectionChanged"/>
                 <Button x:Name="RemoveLifeguardButton" Content="Remove Lifeguard" HorizontalAlignment="Center" Width="auto" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
