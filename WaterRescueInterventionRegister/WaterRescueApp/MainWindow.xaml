@@ -50,6 +50,8 @@
                 <DataGridTextColumn x:Name="PhoneColumnL" Binding="{Binding LifeguardPhoneNumber}"
                                     Header="Phone Number" Width="auto"/>
                 <DataGridTextColumn x:Name="RoleIdColumnL" Binding="{Binding RoleID}"
+                                    Header="Role ID" Width="auto"/>
+                <DataGridTextColumn x:Name="RoleColumnL" Binding="{Binding Role}"
                                     Header="Role" Width="auto"/>
             </DataGrid.Columns>
         </DataGrid>
