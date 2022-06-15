@@ -72,5 +72,11 @@ namespace WaterRescueApp
             }
             IDRemoveComboBox.ItemsSource = tmp;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            InputData.EditLifeguard(Int32.Parse(EditLifeguardIDComboBox.Text), EditFieldComboBox.Text, EditLifeguardValue.Text);
+            this.Close();
+        }
     }
 }

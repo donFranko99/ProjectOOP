@@ -85,9 +85,9 @@
                     <ComboBoxItem x:Name="PhonenumberItem" Content="Phone Number"/>
                     <ComboBoxItem x:Name="RoleItem" Content="Role ID"/>
                 </ComboBox>
-                <TextBox TextWrapping="Wrap" Text="Value" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                <TextBox x:Name="EditLifeguardValue" TextWrapping="Wrap" Text="Value" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
             </StackPanel>
-            <Button Grid.Column="1" Content="Edit Lifeguard" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center"/>
+            <Button Grid.Column="1" Content="Edit Lifeguard" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Click="Button_Click"/>
 
         </Grid>
     </Grid>
