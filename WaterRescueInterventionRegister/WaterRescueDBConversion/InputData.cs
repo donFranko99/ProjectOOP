@@ -35,21 +35,22 @@ namespace WaterRescueDBConversion
                 throw new ArgumentException("Roles take values from 1 to 3");
             }
             var db = new WaterRescueContext();
-            int tmp=1;
-            foreach (Role r in DataFromDB.GetRoles())
-            {
-                if (Int32.Parse(role)==r.ID)
-                {
-                    tmp = r.ID;
-                }
-            }
-
+            Role tmp = new Role();
+            //tmp = DataFromDB.GetRoles().First();
+            //foreach (Role r in DataFromDB.GetRoles())
+            //{
+            //    if (Int32.Parse(role)==r.ID)
+            //    {
+            //        tmp = r;
+            //    }
+            //}
+            tmp.ID = 1;
             db.Add(new Lifeguard()
             {
                 LifeguardName = name,
                 LifeguardSurname = surname,
                 LifeguardPhoneNumber = phoneNumber,
-                RoleID = tmp
+                Role = tmp
             });
             db.SaveChanges();
         }
@@ -66,20 +67,6 @@ namespace WaterRescueDBConversion
                     }
                 }
             }
-        }
-
-        public static void AddReport(string date, string reportText)
-        {
-            
-            var db = new WaterRescueContext();
-            
-
-            db.Add(new Report()
-            {
-                InterventionTime = DateTime.Parse(date),
-                InterventionReport = reportText
-            });
-            db.SaveChanges();
         }
     }
 }

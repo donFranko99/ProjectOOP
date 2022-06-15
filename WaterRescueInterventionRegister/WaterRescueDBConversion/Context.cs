@@ -32,10 +32,10 @@ namespace WaterRescueDBConversion
     {
         public int ID { get; set; }
         public int RoleID { get; set; }
-        public Role Role { get; set; }
         public string LifeguardName { get; set; }
         public string LifeguardSurname { get; set; }
         public string LifeguardPhoneNumber { get; set; }
+        public Role Role { get; set; }
         public ICollection<Intervention> Interventions { get; set; }
     }
     public class Report
@@ -49,12 +49,10 @@ namespace WaterRescueDBConversion
     {
         public int ID { get; set; }
         public int ReportID { get; set; }
-        public Report Report { get; set; }
-
         public int LifeguardID { get; set; }
-        public Lifeguard Lifeguard { get; set; }
-
         public int ResponseTime { get; set; }
+        public Report Report { get; set; }
+        public Lifeguard Lifeguard { get; set; }
     }
     public class Role
     {

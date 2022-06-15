@@ -6,9 +6,6 @@
         xmlns:local="clr-namespace:WaterRescueApp"
         mc:Ignorable="d"
         Title="Reports" Height="600" Width="600">
-    <Window.DataContext>
-        <local:MainWindow/>
-    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
