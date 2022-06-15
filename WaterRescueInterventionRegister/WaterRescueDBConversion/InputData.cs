@@ -53,6 +53,78 @@ namespace WaterRescueDBConversion
             });
             db.SaveChanges();
         }
+        public static void EditLifeguard(int id, string field, string value)
+        {
+            bool success = true;
+            if (value==null)
+            {
+                throw new ArgumentException("Empty argument");
+            }
+            using (var db = new WaterRescueContext())
+            {
+                switch (field)
+                {
+                    case "Name":
+                        {
+                            foreach (Lifeguard lg in db.Lifeguards)
+                            {
+                                if (id==lg.ID)
+                                {
+                                    lg.LifeguardName = value;
+                                }
+                            }
+                            break;
+                        }
+                    case "Surname":
+                        {
+                            foreach (Lifeguard lg in db.Lifeguards)
+                            {
+                                if (id == lg.ID)
+                                {
+                                    lg.LifeguardSurname = value;
+                                }
+                            }
+                            break;
+                        }
+                    case "Phone Number":
+                        {
+                            if (value.Length != 9)
+                            {
+                                throw new ArgumentException("Phone numbers have 9 digits.");
+                            }
+                            foreach (Lifeguard lg in db.Lifeguards)
+                            {
+                                if (id == lg.ID)
+                                {
+                                    lg.LifeguardPhoneNumber = value;
+                                }
+                            }
+                            break;
+                        }
+                    case "Role ID":
+                        {
+                            foreach (Lifeguard lg in db.Lifeguards)
+                            {
+                                if (id == lg.ID)
+                                {
+                                    lg.RoleID = Int32.Parse(value);
+                                }
+                            }
+                            break;
+                        }
+
+                    default:
+                        {
+                            success = false;
+                            break;
+                        }
+                }
+                if (success)
+                {
+                    db.SaveChanges();
+                }
+            }
+        }
         public static void RemoveLifeguard(int id)
         {
             using(var db = new WaterRescueContext())

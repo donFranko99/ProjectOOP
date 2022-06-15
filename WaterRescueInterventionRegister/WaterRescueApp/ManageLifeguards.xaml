@@ -30,13 +30,15 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="25*" />
-                <RowDefinition Height="5*" />
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="2*" />
                 <RowDefinition Height="25*" />
                 <RowDefinition Height="5*" />
             </Grid.RowDefinitions>
             <Button x:Name="AddLifeguardButton" Grid.Column="1" Content="Add Lifeguard"  HorizontalAlignment="Center" Grid.Row="1" Width="auto" VerticalAlignment="Center" Click="AddLifeguardButton_Click"/>
-            <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ComboBox x:Name="IDRemoveComboBox" Loaded="IDRemoveComboBox_Loaded" SelectionChanged="IDRemoveComboBox_SelectionChanged"/>
 
                 <Button x:Name="RemoveLifeguardButton" Content="Remove Lifeguard" HorizontalAlignment="Center" Width="auto" VerticalAlignment="Center" Click="RemoveLifeguardButton_Click"/>
@@ -59,7 +61,7 @@
                     <TextBox x:Name="InputRole" TextWrapping="Wrap" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
-            <DataGrid x:Name="DataGridLifeguard" Grid.Row="3" ItemsSource="{Binding Lifeguards, Mode=TwoWay}" Margin="30" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False">
+            <DataGrid x:Name="DataGridLifeguard" Grid.Row="5" ItemsSource="{Binding Lifeguards, Mode=TwoWay}" Margin="30,10,30,10" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="IdColumnL" Binding="{Binding ID}"
                                     Header="Id" Width="auto"/>
@@ -73,6 +75,20 @@
                                     Header="Role" Width="auto"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" TextAlignment="Center"><Run Text="Edit Lifeguard "/><LineBreak/><Run Text="with ID: "/></TextBlock>
+                <ComboBox x:Name="EditLifeguardIDComboBox" Loaded="ComboBox_Loaded" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                <TextBlock TextWrapping="Wrap" Text="Field to change: " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                <ComboBox x:Name="EditFieldComboBox" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                    <ComboBoxItem x:Name="NameItem" Content="Name"/>
+                    <ComboBoxItem x:Name="SurnameItem" Content="Surname"/>
+                    <ComboBoxItem x:Name="PhonenumberItem" Content="Phone Number"/>
+                    <ComboBoxItem x:Name="RoleItem" Content="Role ID"/>
+                </ComboBox>
+                <TextBox TextWrapping="Wrap" Text="Value" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+            </StackPanel>
+            <Button Grid.Column="1" Content="Edit Lifeguard" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center"/>
+
         </Grid>
     </Grid>
 </Window>

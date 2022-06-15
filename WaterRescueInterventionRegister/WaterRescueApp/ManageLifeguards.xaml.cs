@@ -59,5 +59,18 @@ namespace WaterRescueApp
             InputData.RemoveLifeguard(Int32.Parse(IDRemoveComboBox.SelectedItem.ToString()));
             this.Close();
         }
+
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> tmp = new List<string>();
+            using (var db = new WaterRescueContext())
+            {
+                foreach (Lifeguard lg in db.Lifeguards)
+                {
+                    tmp.Add(lg.ID.ToString());
+                }
+            }
+            IDRemoveComboBox.ItemsSource = tmp;
+        }
     }
 }
