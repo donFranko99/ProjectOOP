@@ -38,18 +38,26 @@ namespace WaterRescueApp
 
         private void IDRemoveComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            foreach (var item in IDRemoveComboBox.Items)
-            {
-                IDRemoveComboBox.Items.Remove(item);
-            }
             
+        }
+
+        private void IDRemoveComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> tmp = new List<string>();
             using (var db = new WaterRescueContext())
             {
                 foreach (Lifeguard lg in db.Lifeguards)
                 {
-                    IDRemoveComboBox.Items.Add(lg.ID);
+                    tmp.Add(lg.ID.ToString());
                 }
             }
+            IDRemoveComboBox.ItemsSource = tmp;
+        }
+
+        private void RemoveLifeguardButton_Click(object sender, RoutedEventArgs e)
+        {
+            InputData.RemoveLifeguard(Int32.Parse(IDRemoveComboBox.SelectedItem.ToString()));
+            this.Close();
         }
     }
 }

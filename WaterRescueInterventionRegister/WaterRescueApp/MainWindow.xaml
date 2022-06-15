@@ -39,7 +39,7 @@
             <Button x:Name="InterventionWindowButton" Content="Manage Interventions" Height="auto" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Padding="5" Margin="10" Click="InterventionWindowButton_Click"/>
         </StackPanel>
 
-        <DataGrid x:Name="DataGridLifeguard" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" ItemsSource="{Binding Lifeguards, Mode=TwoWay}" Margin="30" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False" Visibility="Hidden">
+        <DataGrid x:Name="DataGridLifeguard" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" ItemsSource="{Binding Lifeguards, Mode=TwoWay}" Margin="30" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False" Visibility="Visible">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="IdColumnL" Binding="{Binding ID}"
                                     Header="Id" Width="auto"/>
@@ -49,8 +49,8 @@
                                     Header="Surname" Width="auto"/>
                 <DataGridTextColumn x:Name="PhoneColumnL" Binding="{Binding LifeguardPhoneNumber}"
                                     Header="Phone Number" Width="auto"/>
-                <DataGridTextColumn x:Name="RoleIdColumnL" Binding="{Binding LifeguardPhoneNumber}"
-                                    Header="Phone Number" Width="auto"/>
+                <DataGridTextColumn x:Name="RoleIdColumnL" Binding="{Binding RoleID}"
+                                    Header="Role" Width="auto"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="DataGridReports" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" ItemsSource="{Binding Reports, Mode=TwoWay}" Margin="30" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False" Visibility="Hidden">
