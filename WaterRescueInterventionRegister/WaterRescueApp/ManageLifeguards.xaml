@@ -58,7 +58,7 @@
                     <TextBox x:Name="InputRole" TextWrapping="Wrap" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
-            <ListBox x:Name="LifeguardList" Grid.Row="3" d:ItemsSource="{Binding Lifeguards}" SelectionChanged="LifeguardList_SelectionChanged" ItemsSource="{Binding Lifeguards}"/>
+            <DataGrid Grid.Row="3" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         </Grid>
     </Grid>
 </Window>

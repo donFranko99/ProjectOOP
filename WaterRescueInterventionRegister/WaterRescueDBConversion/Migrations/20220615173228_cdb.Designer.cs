@@ -11,7 +11,7 @@ using WaterRescueDBConversion;
 namespace WaterRescueDBConversion.Migrations
 {
     [DbContext(typeof(WaterRescueContext))]
-    [Migration("20220609183332_cdb")]
+    [Migration("20220615173228_cdb")]
     partial class cdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
