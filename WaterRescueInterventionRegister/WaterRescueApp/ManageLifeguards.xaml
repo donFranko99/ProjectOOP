@@ -36,7 +36,7 @@
                 <RowDefinition Height="5*" />
             </Grid.RowDefinitions>
             <Button x:Name="AddLifeguardButton" Grid.Column="1" Content="Add Lifeguard"  HorizontalAlignment="Center" Grid.Row="1" Width="auto" VerticalAlignment="Center" Click="AddLifeguardButton_Click"/>
-            <StackPanel Grid.Row="3" Grid.Column="1">
+            <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ComboBox x:Name="IDRemoveComboBox" SelectionChanged="IDRemoveComboBox_SelectionChanged" IsSynchronizedWithCurrentItem="{Binding IdColumnL}"/>
                 <Button x:Name="RemoveLifeguardButton" Content="Remove Lifeguard" HorizontalAlignment="Center" Width="auto" VerticalAlignment="Center"/>
             </StackPanel>
@@ -58,7 +58,20 @@
                     <TextBox x:Name="InputRole" TextWrapping="Wrap" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
-            <DataGrid Grid.Row="3" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid x:Name="DataGridLifeguard" Grid.Row="3" ItemsSource="{Binding Lifeguards, Mode=TwoWay}" Margin="30" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="IdColumnL" Binding="{Binding ID}"
+                                    Header="Id" Width="auto"/>
+                    <DataGridTextColumn x:Name="NameColumnL" Binding="{Binding LifeguardName}"
+                                    Header="Name" Width="auto"/>
+                    <DataGridTextColumn x:Name="SurnameColumnL" Binding="{Binding LifeguardSurname}"
+                                    Header="Surname" Width="auto"/>
+                    <DataGridTextColumn x:Name="PhoneColumnL" Binding="{Binding LifeguardPhoneNumber}"
+                                    Header="Phone Number" Width="auto"/>
+                    <DataGridTextColumn x:Name="RoleIdColumnL" Binding="{Binding LifeguardPhoneNumber}"
+                                    Header="Phone Number" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Window>

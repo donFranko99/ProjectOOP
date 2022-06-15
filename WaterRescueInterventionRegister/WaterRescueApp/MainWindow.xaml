@@ -42,13 +42,15 @@
         <DataGrid x:Name="DataGridLifeguard" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" ItemsSource="{Binding Lifeguards, Mode=TwoWay}" Margin="30" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="IdColumnL" Binding="{Binding ID}"
-                                    Header="Id" Width="50"/>
+                                    Header="Id" Width="auto"/>
                 <DataGridTextColumn x:Name="NameColumnL" Binding="{Binding LifeguardName}"
-                                    Header="Name" Width="120"/>
+                                    Header="Name" Width="auto"/>
                 <DataGridTextColumn x:Name="SurnameColumnL" Binding="{Binding LifeguardSurname}"
-                                    Header="Surname" Width="120"/>
+                                    Header="Surname" Width="auto"/>
                 <DataGridTextColumn x:Name="PhoneColumnL" Binding="{Binding LifeguardPhoneNumber}"
-                                    Header="Phone Number" Width="120"/>
+                                    Header="Phone Number" Width="auto"/>
+                <DataGridTextColumn x:Name="RoleIdColumnL" Binding="{Binding LifeguardPhoneNumber}"
+                                    Header="Phone Number" Width="auto"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="DataGridReports" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" ItemsSource="{Binding Reports, Mode=TwoWay}" Margin="30" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False" Visibility="Hidden">
