@@ -35,5 +35,10 @@ namespace WaterRescueApp
         {
 
         }
+
+        private void IDRemoveComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
