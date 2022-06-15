@@ -70,7 +70,7 @@ namespace WaterRescueApp
                     tmp.Add(lg.ID.ToString());
                 }
             }
-            IDRemoveComboBox.ItemsSource = tmp;
+            EditLifeguardIDComboBox.ItemsSource = tmp;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
