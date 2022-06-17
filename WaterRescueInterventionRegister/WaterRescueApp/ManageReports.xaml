@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:WaterRescueApp"
         mc:Ignorable="d"
         Title="Reports" Height="600" Width="600">
+    <Window.DataContext>
+        <local:MainWindow/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
@@ -19,6 +22,62 @@
             <RowDefinition Height="50*" />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="ManageReportsTitle" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24"><Run Text="Manage "/><Run Language="pl-pl" Text="Reports"/></TextBlock>
+        <TextBlock x:Name="ManageReportsTitle" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24"><Run Language="pl-pl" Text="Manage Reports"/></TextBlock>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="25*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+            <Button x:Name="AddReportButton" Grid.Column="1" Content="Add Report"  HorizontalAlignment="Center" Grid.Row="1" Width="auto" VerticalAlignment="Center" Click="AddReportButton_Click"/>
+            <StackPanel Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ComboBox x:Name="IDRemoveComboBoxR" Loaded="IDRemoveComboBoxR_Loaded" SelectionChanged="IDRemoveComboBoxR_SelectionChanged"/>
+
+                <Button x:Name="RemoveReportButton" Content="Remove Report" HorizontalAlignment="Center" Width="auto" VerticalAlignment="Center" Click="RemoveReportButton_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Language="pl-pl" Text="Time: "/></TextBlock>
+                    <DatePicker x:Name="InputDateTime" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Text Report"/><Run Text=": "/></TextBlock>
+                    <TextBox x:Name="InputSurname" TextWrapping="Wrap" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+                
+            </StackPanel>
+            <DataGrid x:Name="DataGridLifeguard" Grid.Row="5" ItemsSource="{Binding Reports, Mode=TwoWay}" Margin="30,10,30,10" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="IdColumnR" Binding="{Binding ID}"
+                                    Header="Id" Width="auto"/>
+                    <DataGridTextColumn x:Name="NameColumnL" Binding="{Binding InterventionTime}"
+                                    Header="Time" Width="auto"/>
+                    <DataGridTextColumn x:Name="SurnameColumnL" Binding="{Binding InterventionReport}"
+                                    Header="Report" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" TextAlignment="Center"><Run Text="Edit Report "/><LineBreak/><Run Text="with ID: "/></TextBlock>
+                <ComboBox x:Name="EditLifeguardIDComboBox" Loaded="ComboBox_Loaded" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                <TextBlock TextWrapping="Wrap" Text="Field to change: " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                <ComboBox x:Name="EditFieldComboBox" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                    <ComboBoxItem x:Name="NameItem" Content="Name"/>
+                    <ComboBoxItem x:Name="SurnameItem" Content="Surname"/>
+                    <ComboBoxItem x:Name="PhonenumberItem" Content="Phone Number"/>
+                    <ComboBoxItem x:Name="RoleItem" Content="Role ID"/>
+                </ComboBox>
+                <TextBox x:Name="EditLifeguardValue" TextWrapping="Wrap" Text="Value" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+            </StackPanel>
+            <Button Grid.Column="1" Content="Edit Report" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Click="Button_Click"/>
+
+        </Grid>
     </Grid>
 </Window>

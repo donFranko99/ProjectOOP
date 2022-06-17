@@ -23,5 +23,35 @@ namespace WaterRescueApp
         {
             InitializeComponent();
         }
+
+        private void AddReportButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveReportButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void IDRemoveComboBoxR_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void IDRemoveComboBoxR_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
